@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:learn_flutter/models/unsplash_image_model.dart';
+import 'package:learn_flutter/providers/state_providers.dart';
+import 'package:learn_flutter/providers/unsplash_provider.dart';
 import 'package:learn_flutter/widgets/appbar.dart';
 
 // final helloWorldProvider = Provider<String>((_) => 'Hello world');
@@ -56,40 +59,26 @@ import 'package:learn_flutter/widgets/appbar.dart';
 //   }
 // }
 
-class Clock extends StateNotifier<DateTime> {
-  Clock() : super(DateTime.now()) {
-    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-      state = DateTime.now();
-    });
-  }
 
-  late final Timer _timer;
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-}
-
-final clockProvider = StateNotifierProvider<Clock, DateTime>((ref) {
-  return Clock();
-});
-
-class ProviderMainScreen extends ConsumerWidget {
+class ProviderMainScreen extends ConsumerWidget{
   const ProviderMainScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currentTime = ref.watch(clockProvider);
-    final timeFormatted = DateFormat.Hms().format(currentTime);
+    final imageUrlValue = ref.watch(cityImageProvider);
+
     return Scaffold(
-        appBar: const CustomAppBar(title: 'Provider',),
-        body: Center(
-          child: Text(
-                timeFormatted,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-              ),
-        ));
+      appBar: const CustomAppBar(title: 'Provider Screen',),
+      body: imageUrlValue != null ? _buildImage(context, imageUrlValue): const Center(child: Text('No image found'),)
+    );
+  }
+
+  Widget _buildImage(BuildContext context, String image){
+    return SizedBox(
+      height: double.infinity,
+      width: double.infinity,
+      child: Image.network(image, 
+      fit: BoxFit.cover,),
+    );
   }
 }
