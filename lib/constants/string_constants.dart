@@ -1,4 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-String? baseUrl = dotenv.env['BASE_URL'];
-String? weatherAPIKey = dotenv.env['API_KEY'];
+String? openWeatherBaseUrl = dotenv.env['OPENWEATHER_BASE_URL'];
+String? openWeatherAPIKey = dotenv.env['OPENWEATHER_API_KEY'];
+
+String? unsplashBaseUrl = dotenv.env['UNSPLASH_BASE_URL'];
+String? unsplashAPIKey = dotenv.env['UNSPLASH_ACCESS_KEY'];

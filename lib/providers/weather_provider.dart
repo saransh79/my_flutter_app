@@ -4,7 +4,7 @@ import 'package:learn_flutter/models/weather_model.dart';
 import '../services/weather_api_service.dart';
 
 final weatherApiServiceProvider = Provider<WeatherApiService>((ref) {
-  return WeatherApiService(baseUrl: baseUrl!, apiKey: weatherAPIKey!);
+  return WeatherApiService(baseUrl: openWeatherBaseUrl!, apiKey: openWeatherAPIKey!);
 });
 
 final weatherProvider = FutureProvider.family<Weather, String>((ref, city) {

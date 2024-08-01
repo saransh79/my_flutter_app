@@ -18,9 +18,7 @@ class WeatherApiService {
       final json = jsonDecode(response.body);
       return Weather.fromJson(json);
     } else {
-      final responsebody = jsonDecode(response.body);
-      print('response : $responsebody');
-      throw Exception('Failed to load weather data');
+      throw Exception(response.reasonPhrase);
     }
   }
 }
