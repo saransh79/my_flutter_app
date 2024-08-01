@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/routes/app_routes.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:learn_flutter/view/routes/app_routes.dart';
 
-void main() {
-  runApp(const MyApp());
+Future main() async{
+  await dotenv.load(fileName: ".env");
+  runApp(const ProviderScope(child: MyApp(),));
 }
 
 class MyApp extends StatefulWidget {

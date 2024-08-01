@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:learn_flutter/utility_widgets/appbar.dart';
+import 'package:learn_flutter/widgets/appbar.dart';
 
-import '../constants/color_constants.dart';
+import '../../constants/color_constants.dart';
 
 
 class ParallaxScrollingScreen extends StatelessWidget {

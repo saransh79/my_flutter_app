@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/utility_widgets/appbar.dart';
+import 'package:learn_flutter/widgets/appbar.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {

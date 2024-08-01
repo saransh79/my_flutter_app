@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/screens/dismiss_item_screen.dart';
-import 'package:learn_flutter/screens/drawer_screen.dart';
-import 'package:learn_flutter/screens/parallax_scrolling_screen.dart';
-import 'package:learn_flutter/screens/random_images_screen.dart';
-import 'package:learn_flutter/screens/tab_bar_screen.dart';
-import 'package:learn_flutter/screens/video_player_screen.dart';
+import 'package:learn_flutter/view/screens/dismiss_item_screen.dart';
+import 'package:learn_flutter/view/screens/drawer_screen.dart';
+import 'package:learn_flutter/view/screens/parallax_scrolling_screen.dart';
+import 'package:learn_flutter/view/screens/provider_screen.dart';
+import 'package:learn_flutter/view/screens/random_images_screen.dart';
+import 'package:learn_flutter/view/screens/tab_bar_screen.dart';
+import 'package:learn_flutter/view/screens/video_player_screen.dart';
+import 'package:learn_flutter/view/screens/weather_screen.dart';
 import '../screens/home_screen.dart';
 
 class AppRoutes {
@@ -15,6 +17,8 @@ class AppRoutes {
   static const String videoPlayer = '/videoPlayer';
   static const String tabBar = '/tabBar';
   static const String drawer = '/drawer';
+  static const String provider = '/provider';
+  static const String weather = '/weather';
 
   static Map<String, WidgetBuilder> getRoutes() {
     return {
@@ -25,6 +29,8 @@ class AppRoutes {
       videoPlayer: (context) => const VideoPlayerScreen(),
       tabBar: (context) => const TabBarScreen(),
       drawer: (context) => const DrawerScreen(),
+      provider: (context) => const ProviderMainScreen(),
+      weather: (context) => const WeatherScreen(),
     };
   }
 
@@ -42,6 +48,10 @@ class AppRoutes {
         return const TabBarScreen();
       case AppRoutes.drawer:
         return const DrawerScreen();
+      case AppRoutes.provider:
+        return const ProviderMainScreen();
+      case AppRoutes.weather:
+        return const WeatherScreen();
       default:
         return const HomeScreen();
     }

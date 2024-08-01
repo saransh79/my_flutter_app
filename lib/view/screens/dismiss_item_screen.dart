@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/utility_widgets/appbar.dart';
+import 'package:learn_flutter/widgets/appbar.dart';
 
 class DismissItemScreen extends StatefulWidget {
   const DismissItemScreen({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/animations/custom_animations.dart';
-import 'package:learn_flutter/utility_widgets/appbar.dart';
+import 'package:learn_flutter/view/animations/custom_animations.dart';
+import 'package:learn_flutter/widgets/appbar.dart';
 
 import '../routes/app_routes.dart';
 
@@ -131,4 +131,16 @@ final List<Map<String, dynamic>> _tileData = [
     'icon': Icons.drag_handle,
     'route': AppRoutes.drawer
   },
+  {
+    'title': 'Learn Provider',
+    'subtitle': 'Learning provider basics',
+    'icon': Icons.read_more_outlined,
+    'route': AppRoutes.provider
+  },
+  {
+    'title': 'Weather',
+    'subtitle': 'Check weather',
+    'icon': Icons.sunny,
+    'route': AppRoutes.weather
+  }
 ];
