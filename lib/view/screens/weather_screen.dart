@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:learn_flutter/models/unsplash_image_model.dart';
 import 'package:learn_flutter/models/weather_model.dart';
 import 'package:learn_flutter/providers/state_providers.dart';
 import 'package:learn_flutter/providers/unsplash_provider.dart';
@@ -68,10 +67,17 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: unsplashAsyncValue.when(
-                    data: (img) { 
-                      ref.read(cityImageProvider.notifier).state = img.imageUrl;
-                      return _buildCityImage(context, img);
-                      },
+                    data: (img) {
+                      // Save the image URL using the StateNotifier
+                      Future<void> storeCityImage() async {
+                        ref.read(cityImageProvider.notifier).state =
+                            img.imageUrl;
+                      }
+
+                      storeCityImage();
+
+                      return _buildCityImageWidget(context, img.imageUrl);
+                    },
                     error: (error, stack) => Text('$error'),
                     loading: () => const CircularProgressIndicator()),
               )
@@ -121,7 +127,7 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
     );
   }
 
-  Widget _buildCityImage(BuildContext context, UnsplashImage image) {
-    return Image.network(image.imageUrl);
+  Widget _buildCityImageWidget(BuildContext context, String img) {
+    return Image.network(img);
   }
 }

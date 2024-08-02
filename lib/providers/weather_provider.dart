@@ -7,7 +7,7 @@ final weatherApiServiceProvider = Provider<WeatherApiService>((ref) {
   return WeatherApiService(baseUrl: openWeatherBaseUrl!, apiKey: openWeatherAPIKey!);
 });
 
-final weatherProvider = FutureProvider.family<Weather, String>((ref, city) {
+final weatherProvider = FutureProvider.autoDispose.family<Weather, String>((ref, city) {
   final apiService = ref.read(weatherApiServiceProvider);
   return apiService.fetchWeather(city);
 });

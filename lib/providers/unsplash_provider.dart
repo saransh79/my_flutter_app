@@ -8,7 +8,7 @@ final unsplashApiServiceProvider = Provider<UnsplashApiService>((ref) {
 });
 
 final unsplashProvider =
-    FutureProvider.family<UnsplashImage, String>((ref, city) {
+    FutureProvider.autoDispose.family<UnsplashImage, String>((ref, city) {
   final apiService = ref.read(unsplashApiServiceProvider);
   return apiService.fetchCityImage(city);
 });

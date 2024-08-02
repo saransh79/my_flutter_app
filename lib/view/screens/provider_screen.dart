@@ -1,11 +1,7 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
-import 'package:learn_flutter/models/unsplash_image_model.dart';
 import 'package:learn_flutter/providers/state_providers.dart';
-import 'package:learn_flutter/providers/unsplash_provider.dart';
 import 'package:learn_flutter/widgets/appbar.dart';
 
 // final helloWorldProvider = Provider<String>((_) => 'Hello world');
