@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/view/screens/dismiss_item_screen.dart';
 import 'package:learn_flutter/view/screens/drawer_screen.dart';
+import 'package:learn_flutter/view/screens/jokes_screen.dart';
 import 'package:learn_flutter/view/screens/parallax_scrolling_screen.dart';
 import 'package:learn_flutter/view/screens/provider_screen.dart';
 import 'package:learn_flutter/view/screens/random_images_screen.dart';
@@ -19,6 +20,7 @@ class AppRoutes {
   static const String drawer = '/drawer';
   static const String provider = '/provider';
   static const String weather = '/weather';
+  static const String jokes = '/jokes';
 
   static Map<String, WidgetBuilder> getRoutes() {
     return {
@@ -31,6 +33,7 @@ class AppRoutes {
       drawer: (context) => const DrawerScreen(),
       provider: (context) => const ProviderMainScreen(),
       weather: (context) => const WeatherScreen(),
+      jokes: (context) => const JokesScreen(),
     };
   }
 
@@ -52,6 +55,8 @@ class AppRoutes {
         return const ProviderMainScreen();
       case AppRoutes.weather:
         return const WeatherScreen();
+      case AppRoutes.jokes:
+        return const JokesScreen();
       default:
         return const HomeScreen();
     }

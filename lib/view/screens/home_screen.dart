@@ -142,5 +142,11 @@ final List<Map<String, dynamic>> _tileData = [
     'subtitle': 'Check weather',
     'icon': Icons.sunny,
     'route': AppRoutes.weather
+  },
+  {
+    'title': 'Jokes',
+    'subtitle': 'Read the jokes',
+    'icon': Icons.emoji_emotions,
+    'route': AppRoutes.jokes
   }
 ];
